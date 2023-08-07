@@ -5,8 +5,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+
     private Rigidbody2D _rig;
     private Vector2 _direction;
+
+    public Vector2 direction { get {return _direction;} set {_direction = value;} }
 
 
     private void Start() {
