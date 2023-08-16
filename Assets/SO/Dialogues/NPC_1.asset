@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: NPC_1
   m_EditorClassIdentifier: 
   actor: {fileID: 6040888749225074888, guid: 02eea3da29543834fabe95391f6effa1, type: 3}
-  speakerSprite: {fileID: 1063752157, guid: a3fba87c0e0d6ad4e8c179b8e02d2002, type: 3}
-  sentence: "Ol\xE1, mundo!"
-  dialogues: []
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: "Jo\xE3o"
+    profile: {fileID: 1063752157, guid: a3fba87c0e0d6ad4e8c179b8e02d2002, type: 3}
+    sentence:
+      portuguese: "Ol\xE1!"
+      english: Hello!
+      spanish: "\xA1Hola!"
+  - actorName: "Jo\xE3o"
+    profile: {fileID: 1063752157, guid: a3fba87c0e0d6ad4e8c179b8e02d2002, type: 3}
+    sentence:
+      portuguese: Tudo bem?
+      english: How are you?
+      spanish: "\xBFTodo bien?"

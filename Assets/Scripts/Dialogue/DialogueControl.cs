@@ -6,6 +6,19 @@ using TMPro;
 
 public class DialogueControl : MonoBehaviour
 {
+    public static DialogueControl Instance { get; private set; }
+
+
+    [System.Serializable]
+    public enum idiom
+    {
+        pt,
+        eng,
+        spa
+    }
+
+    public idiom language;
+
     [Header("Components")]
     public GameObject dialogueObj;
     public Image profileSprite;
@@ -18,13 +31,26 @@ public class DialogueControl : MonoBehaviour
     private bool _isShowing;
     private int _index; //sentences index
     private string[] _senteces;
+    
 
+    private void Awake() {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
-    private void Start() {
+    void Start()
+    {
         
     }
 
-    private void Update() {
+    void Update()
+    {
         
     }
 
@@ -40,7 +66,24 @@ public class DialogueControl : MonoBehaviour
     //Skip to next sentence
     public void NextSentence()
     {
+        if (speechText.text == _senteces[_index])
+        {
+            if (_index < _senteces.Length - 1)
+            {
+                _index++;
+                speechText.text = "";
+                StartCoroutine(TypeSentence());
+            }
+            else
+            {
+                speechText.text = "";
+                _index = 0;
+                dialogueObj.SetActive(false);
+                _senteces = null;
 
+                _isShowing = false;
+            }
+        }
     }
 
     //Call NPC speech
