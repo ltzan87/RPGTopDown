@@ -31,6 +31,8 @@ public class DialogueControl : MonoBehaviour
     private bool _isShowing;
     private int _index; //sentences index
     private string[] _senteces;
+
+    public bool isShowing { get => _isShowing; set => _isShowing = value; }
     
 
     private void Awake() {
