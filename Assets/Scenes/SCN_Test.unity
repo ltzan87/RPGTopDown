@@ -20561,6 +20561,7 @@ MonoBehaviour:
   runSpeed: 8
   keyCodeRun: 304
   keyCodeRoll: 324
+  keyCodeCut: 323
 --- !u!50 &1494858868
 Rigidbody2D:
   serializedVersion: 4
