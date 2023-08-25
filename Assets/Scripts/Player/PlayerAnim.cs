@@ -8,12 +8,14 @@ public class PlayerAnim : MonoBehaviour
     private Animator _animator;
 
 
-    private void Start() {
+    void Start()
+    {
         _player = GetComponent<Player>();
         _animator = GetComponent<Animator>();
     }
 
-    private void Update() {
+    void Update()
+    {
         OnMove();
         OnRun();
     }

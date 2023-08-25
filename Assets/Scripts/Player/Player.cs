@@ -24,12 +24,14 @@ public class Player : MonoBehaviour
     public bool isCutting { get {return _isCutting;} set {_isCutting = value;} }
 
 
-    private void Start() {
+    void Start()
+    {
         _rig = GetComponent<Rigidbody2D>();
         _initialSpeed = speed;
     }
 
-    private void Update() {
+    void Update()
+    {
         OnInput();
         OnRun();
         OnRolling();
