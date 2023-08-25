@@ -8,6 +8,7 @@ public class Tree : MonoBehaviour
 
     public GameObject woodPFB;
     public int totalWood;
+    public ParticleSystem leafs;
 
     [SerializeField] private Animator _animator;
 
@@ -17,7 +18,7 @@ public class Tree : MonoBehaviour
         treeHealth--;
 
         _animator.SetTrigger("isHit");
-
+        leafs.Play();
         if (treeHealth <= 0)
         {
             //create and instantiate drops
