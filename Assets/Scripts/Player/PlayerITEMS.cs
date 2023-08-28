@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerITEMS : MonoBehaviour
 {
     public int totalWood;
+    public int items;
 
     public float currentWater;
     private float _waterLimit = 50f;
@@ -15,6 +16,5 @@ public class PlayerITEMS : MonoBehaviour
         {
             currentWater += water;
         }
-
     }
 }
