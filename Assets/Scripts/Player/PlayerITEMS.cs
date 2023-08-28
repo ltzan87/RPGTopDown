@@ -6,14 +6,15 @@ public class PlayerITEMS : MonoBehaviour
 {
     public int totalWood;
 
+    public float currentWater;
+    private float _waterLimit = 50f;
 
-    void Start()
+    public void WaterLimit(float water)
     {
-        
-    }
+        if (currentWater <= _waterLimit)
+        {
+            currentWater += water;
+        }
 
-    void Update()
-    {
-        
     }
 }

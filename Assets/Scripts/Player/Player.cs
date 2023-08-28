@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public float runSpeed;
+
     public KeyCode keyCodeRun = KeyCode.LeftShift;
     public KeyCode keyCodeRoll = KeyCode.Mouse1;
     public KeyCode keyCodeTools = KeyCode.Mouse0;
@@ -15,9 +16,12 @@ public class Player : MonoBehaviour
     private bool _isRolling;
     private bool _isCutting;
     private bool _isDigging;
+    private bool _isWatering;
 
     private Rigidbody2D _rig;
     private Vector2 _direction;
+
+    private PlayerITEMS _playerITEMS;
 
     private int _handlingObj;
 
@@ -26,30 +30,26 @@ public class Player : MonoBehaviour
     public bool isRolling { get {return _isRolling;} set {_isRolling = value;} }
     public bool isCutting { get {return _isCutting;} set {_isCutting = value;} }
     public bool isDigging { get {return _isDigging;} set {_isDigging = value;} }
+    public bool isWatering { get {return _isWatering;} set {_isWatering = value;} }
 
 
     void Start()
     {
         _rig = GetComponent<Rigidbody2D>();
+        _playerITEMS = GetComponent<PlayerITEMS>();
         _initialSpeed = speed;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _handlingObj = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _handlingObj = 2;
-        }
+        HandlingObj();
 
         OnInput();
         OnRun();
         OnRolling();
         OnCutting();
         OnDig();
+        OnWatering();
     }
 
     private void FixedUpdate() {
@@ -129,6 +129,45 @@ public class Player : MonoBehaviour
         }
 
     }
+    void OnWatering()
+    {
+        if(_handlingObj == 3)
+        {
+            if (Input.GetKeyDown(keyCodeTools) && _playerITEMS.currentWater > 0)
+            {
+                _isWatering = true;
+                speed = 0f;
+            }   
+            if (Input.GetKeyUp(keyCodeTools) || _playerITEMS.currentWater < 0)
+            {
+                _isWatering = false;
+                speed = _initialSpeed;
+            }
+
+            //water value drops when watering is true
+            if (_isWatering)
+            {
+                _playerITEMS.currentWater-= 0.01f;
+            }
+        }
+
+    }
 
     #endregion
+
+    void HandlingObj()
+    {
+       if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _handlingObj = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _handlingObj = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _handlingObj = 3;
+        }  
+    }
 }
