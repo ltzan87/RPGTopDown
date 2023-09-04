@@ -9,6 +9,7 @@ public class HUDController : MonoBehaviour
     public Image waterUIBar;
     public Image woodUIBar;
     public Image carrotUIBar;
+    public Image fishUIBar;
 
     [Header("Tools")]
     // public Image axeUI;
@@ -32,6 +33,7 @@ public class HUDController : MonoBehaviour
         waterUIBar.fillAmount = 0f;
         woodUIBar.fillAmount = 0f;
         carrotUIBar.fillAmount = 0f;
+        fishUIBar.fillAmount = 0f;
     }
 
     void Update()
@@ -45,6 +47,7 @@ public class HUDController : MonoBehaviour
         waterUIBar.fillAmount = _playerITEMS.currentWater / _playerITEMS.waterLimit;
         woodUIBar.fillAmount = _playerITEMS.totalWood / _playerITEMS.woodLimit;
         carrotUIBar.fillAmount = _playerITEMS.items / _playerITEMS.carrotsLimit;
+        fishUIBar.fillAmount = _playerITEMS.fishes / _playerITEMS.fishesLimit;
     }
 
     public void ToolsSelection()
