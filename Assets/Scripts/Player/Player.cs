@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private PlayerITEMS _playerITEMS;
 
-    private int _handlingObj;
+    [HideInInspector] public int _handlingObj;
 
     public Vector2 direction { get {return _direction;} set {_direction = value;} }
     public bool isRunning { get {return _isRunning;} set {_isRunning = value;} }
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
 
     void OnCutting()
     {
-        if(_handlingObj == 1)
+        if(_handlingObj == 0)
         {
             if (Input.GetKeyDown(keyCodeTools))
             {
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 
     void OnDig()
     {
-        if(_handlingObj == 2)
+        if(_handlingObj == 1)
         {
             if (Input.GetKeyDown(keyCodeTools))
             {
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
     }
     void OnWatering()
     {
-        if(_handlingObj == 3)
+        if(_handlingObj == 2)
         {
             if (Input.GetKeyDown(keyCodeTools) && _playerITEMS.currentWater > 0)
             {
@@ -159,15 +159,15 @@ public class Player : MonoBehaviour
     {
        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _handlingObj = 1;
+            _handlingObj = 0;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _handlingObj = 2;
+            _handlingObj = 1;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            _handlingObj = 3;
+            _handlingObj = 2;
         }  
     }
 }
