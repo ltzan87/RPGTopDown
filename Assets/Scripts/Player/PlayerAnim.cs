@@ -7,11 +7,14 @@ public class PlayerAnim : MonoBehaviour
     private Player _player;
     private Animator _animator;
 
+    private Fishing _cast;
 
     void Start()
     {
         _player = GetComponent<Player>();
         _animator = GetComponent<Animator>();
+
+        _cast = FindObjectOfType<Fishing>();
     }
 
     void Update()
@@ -73,5 +76,15 @@ public class PlayerAnim : MonoBehaviour
 
     #endregion
 
+    public void OnCastingStart()
+    {
+        _animator.SetTrigger("isFishing");
+        _player.isPaused = true;
+    }
 
+    public void OnCastingEnd()
+    {
+        _cast.OnCasting();
+        _player.isPaused = false;
+    }
 }

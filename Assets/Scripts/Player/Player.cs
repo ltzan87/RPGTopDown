@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public float speed;
     public float runSpeed;
 
+    public bool isPaused;
+
     public KeyCode keyCodeRun = KeyCode.LeftShift;
     public KeyCode keyCodeRoll = KeyCode.Mouse1;
     public KeyCode keyCodeTools = KeyCode.Mouse0;
@@ -42,18 +44,25 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        HandlingObj();
+        if (!isPaused)
+        {
+            HandlingObj();
 
-        OnInput();
-        OnRun();
-        OnRolling();
-        OnCutting();
-        OnDig();
-        OnWatering();
+            OnInput();
+            OnRun();
+            OnRolling();
+            OnCutting();
+            OnDig();
+            OnWatering();
+        }
+
     }
 
     private void FixedUpdate() {
-        OnMove();
+        if (!isPaused)
+        {
+            OnMove();
+        }
     }
 
     #region Movement

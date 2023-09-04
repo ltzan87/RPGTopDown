@@ -23914,6 +23914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCodeFishing: 101
+  fishPFB: {fileID: 2610036460439923808, guid: c132d48b379b098448da5fe48d02160a, type: 3}
   _percentage: 80
 --- !u!61 &789733778
 BoxCollider2D:
@@ -25774,6 +25775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   runSpeed: 8
+  isPaused: 0
   keyCodeRun: 304
   keyCodeRoll: 324
   keyCodeTools: 323
