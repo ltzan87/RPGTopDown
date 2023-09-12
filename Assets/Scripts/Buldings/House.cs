@@ -10,7 +10,7 @@ public class House : MonoBehaviour
     public Color startColor;
     public Color endColor;
     public float timeAmount;
-
+    public GameObject houseColl;
 
     private bool _playerDetected;
     private bool _isBeginnig;
@@ -51,6 +51,7 @@ public class House : MonoBehaviour
                 _playerAnim.OnHammeringEnded();
                 houseSprite.color = endColor;
                 _player.isPaused = false;
+                houseColl.SetActive(true);
             }
         }
     }
