@@ -81,10 +81,18 @@ public class PlayerAnim : MonoBehaviour
         _animator.SetTrigger("isFishing");
         _player.isPaused = true;
     }
-
     public void OnCastingEnd()
     {
         _cast.OnCasting();
         _player.isPaused = false;
+    }
+
+    public void OnHammeringStarted()
+    {
+        _animator.SetBool("hammering", true);
+    }
+    public void OnHammeringEnded()
+    {
+        _animator.SetBool("hammering", false);
     }
 }
