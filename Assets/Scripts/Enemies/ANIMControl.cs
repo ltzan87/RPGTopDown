@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ANIMControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private Animator _animator;
+
+
+    private void Start() {
+        _animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayAmin(int value)
     {
-        
+        _animator.SetInteger("transition", value);
     }
 }
