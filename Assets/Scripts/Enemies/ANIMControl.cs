@@ -9,10 +9,12 @@ public class ANIMControl : MonoBehaviour
     public LayerMask playerLayer;
     
     private Animator _animator;
+    private PlayerAnim _player;
 
 
     private void Start() {
         _animator = GetComponent<Animator>();
+        _player = FindObjectOfType<PlayerAnim>();
     }
 
     public void PlayAmin(int value)
@@ -26,7 +28,7 @@ public class ANIMControl : MonoBehaviour
 
         if (hit != null)
         {
-            Debug.Log("bateu no player");
+            _player.OnHit();
         }
         else
         {

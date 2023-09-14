@@ -9,6 +9,11 @@ public class PlayerAnim : MonoBehaviour
 
     private Fishing _cast;
 
+    private bool _isHiting;
+    private float _timeCount;
+    private float _recoveryTime = 1f;
+
+
     void Start()
     {
         _player = GetComponent<Player>();
@@ -21,6 +26,8 @@ public class PlayerAnim : MonoBehaviour
     {
         OnMove();
         OnRun();
+
+        Delay();
     }
     
     #region Movement
@@ -94,5 +101,28 @@ public class PlayerAnim : MonoBehaviour
     public void OnHammeringEnded()
     {
         _animator.SetBool("hammering", false);
+    }
+
+    public void OnHit()
+    {
+        if (!_isHiting)
+        {
+            _animator.SetTrigger("hit");
+            _isHiting = true;
+        }
+    }
+
+    public void Delay()
+    {
+        if (_isHiting)
+        {
+            _timeCount += Time.deltaTime;
+
+            if (_timeCount >= _recoveryTime)
+            {
+                _isHiting = false;
+                _timeCount = 0f;
+            }
+        }
     }
 }
