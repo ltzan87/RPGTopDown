@@ -37455,6 +37455,7 @@ GameObject:
   - component: {fileID: 2108659304}
   - component: {fileID: 2108659306}
   - component: {fileID: 2108659305}
+  - component: {fileID: 2108659307}
   m_Layer: 5
   m_Name: FullBar
   m_TagString: Untagged
@@ -37520,6 +37521,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108659303}
   m_CullTransparentMesh: 1
+--- !u!114 &2108659307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108659303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e2b4fc5f08fa2458a44ee7db81b8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 202672445}
 --- !u!1 &2111615413
 GameObject:
   m_ObjectHideFlags: 0
@@ -37719,6 +37733,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 591099863}
     m_Modifications:
+    - target: {fileID: 5827087880613891240, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1639310858}
     - target: {fileID: 5827087880613891240, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
       propertyPath: health
       value: 5
