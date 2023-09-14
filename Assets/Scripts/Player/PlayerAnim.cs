@@ -20,7 +20,7 @@ public class PlayerAnim : MonoBehaviour
 
 
     void Start()
-    {
+    {   
         _player = GetComponent<Player>();
         _animator = GetComponent<Animator>();
 
@@ -97,7 +97,7 @@ public class PlayerAnim : MonoBehaviour
         if (hit != null)
         {
             //hit enemy
-            Debug.Log("HIT ENEMy");
+            hit.GetComponentInChildren<ANIMControl>().OnHit();
         }
     }
 
