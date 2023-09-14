@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
 {
+    [Header("Attack Settings")]
+    public Transform attackPoint;
+    public float radius;
+    public LayerMask enemyLayer;
+   
     private Player _player;
     private Animator _animator;
 
@@ -79,6 +84,25 @@ public class PlayerAnim : MonoBehaviour
         {
             _animator.SetInteger("transition", 2);
         }
+    }
+
+    #endregion
+
+    #region Attack
+
+    public void OnAttack()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, radius, enemyLayer);
+
+        if (hit != null)
+        {
+            //hit enemy
+            Debug.Log("HIT ENEMy");
+        }
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(attackPoint.position, radius);
     }
 
     #endregion

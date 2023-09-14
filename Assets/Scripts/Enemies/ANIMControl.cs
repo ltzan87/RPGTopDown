@@ -28,6 +28,7 @@ public class ANIMControl : MonoBehaviour
 
         if (hit != null)
         {
+            //hit player
             _player.OnHit();
         }
         else

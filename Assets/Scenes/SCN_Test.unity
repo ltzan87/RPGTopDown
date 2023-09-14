@@ -22696,7 +22696,7 @@ GameObject:
   - component: {fileID: 202672447}
   - component: {fileID: 202672449}
   - component: {fileID: 202672446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26569,6 +26569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b53e25501402a4f8428b2e9447e8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: {fileID: 1713330392}
+  radius: 0.38
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1494858872
 MonoBehaviour:
   m_ObjectHideFlags: 0
