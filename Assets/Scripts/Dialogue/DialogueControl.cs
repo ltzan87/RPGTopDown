@@ -31,6 +31,8 @@ public class DialogueControl : MonoBehaviour
     private bool _isShowing;
     private int _index; //sentences index
     private string[] _senteces;
+    private string[] _actorName;
+    private Sprite[] _actorSprite;
 
     public bool isShowing { get => _isShowing; set => _isShowing = value; }
     
@@ -73,13 +75,17 @@ public class DialogueControl : MonoBehaviour
             if (_index < _senteces.Length - 1)
             {
                 _index++;
+                profileSprite.sprite = _actorSprite[_index];
+                actorNameText.text = _actorName[_index];
                 speechText.text = "";
                 StartCoroutine(TypeSentence());
             }
             else
             {
                 speechText.text = "";
+                actorNameText.text = "";
                 _index = 0;
+
                 dialogueObj.SetActive(false);
                 _senteces = null;
 
@@ -89,13 +95,20 @@ public class DialogueControl : MonoBehaviour
     }
 
     //Call NPC speech
-    public void Speech(string[] txt)
+    public void Speech(string[] txt, string[] actorName, Sprite[] actorProfile)
     {
         if (!_isShowing)
         {
             dialogueObj.SetActive(true);
+
             _senteces = txt;
+            _actorName = actorName;
+            _actorSprite = actorProfile;
+            profileSprite.sprite = _actorSprite[_index];
+            actorNameText.text = _actorName[_index];
+
             StartCoroutine(TypeSentence());
+            
             _isShowing = true;
         }
     }
