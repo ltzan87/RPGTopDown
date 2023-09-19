@@ -34,6 +34,9 @@ public class DialogueControl : MonoBehaviour
     private string[] _actorName;
     private Sprite[] _actorSprite;
 
+    private Player _player;
+    private PlayerAnim _playerAnim;
+
     public bool isShowing { get => _isShowing; set => _isShowing = value; }
     
 
@@ -50,7 +53,7 @@ public class DialogueControl : MonoBehaviour
 
     void Start()
     {
-        
+        _player = FindObjectOfType<Player>();
     }
 
     void Update()
@@ -90,6 +93,7 @@ public class DialogueControl : MonoBehaviour
                 _senteces = null;
 
                 _isShowing = false;
+                _player.isPaused = false;
             }
         }
     }
@@ -110,6 +114,7 @@ public class DialogueControl : MonoBehaviour
             StartCoroutine(TypeSentence());
             
             _isShowing = true;
+            _player.isPaused = true;
         }
     }
 }

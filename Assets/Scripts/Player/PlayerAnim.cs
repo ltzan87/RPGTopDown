@@ -18,6 +18,7 @@ public class PlayerAnim : MonoBehaviour
     private float _timeCount;
     private float _recoveryTime = 1f;
 
+    public Animator animator { get {return _animator;} set {_animator = value;} }
 
     void Start()
     {   
@@ -43,7 +44,10 @@ public class PlayerAnim : MonoBehaviour
         {
             if (_player.isRolling)
             {
-                _animator.SetTrigger("isRoll");
+                if (!_animator.GetCurrentAnimatorStateInfo(0).IsName("ANIM_Roll"))
+                {
+                    _animator.SetTrigger("isRoll");   
+                }
             }
             else
             {
@@ -80,7 +84,7 @@ public class PlayerAnim : MonoBehaviour
 
     void OnRun()
     {
-        if (_player.isRunning)
+        if (_player.isRunning && _player.direction.sqrMagnitude > 0)
         {
             _animator.SetInteger("transition", 2);
         }
