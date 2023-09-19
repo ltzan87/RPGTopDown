@@ -56851,7 +56851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.36, y: -1.98, z: -10}
+  m_LocalPosition: {x: -24.81, y: -2.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58837,7 +58837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942943153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.36, y: -1.98, z: -10}
+  m_LocalPosition: {x: -24.81, y: -2.15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60756,7 +60756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494858864}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.36, y: -1.98, z: 0}
+  m_LocalPosition: {x: -24.81, y: -2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60885,7 +60885,7 @@ MonoBehaviour:
   totalWood: 0
   items: 0
   fishes: 0
-  currentWater: 0
+  currentWater: 50
 --- !u!82 &1494858873
 AudioSource:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class SlotFarm : MonoBehaviour
     private float _currentWater;
     private bool _dugHole;
     private bool _plantedCarrot;
+    private bool _isPlayer; // turns true when player is close
 
     PlayerITEMS playerITEMS;
 
@@ -71,7 +72,7 @@ public class SlotFarm : MonoBehaviour
                 _plantedCarrot = true;
             }
             
-            if (Input.GetKeyDown(keyCodeHarvest) && _plantedCarrot)
+            if (Input.GetKeyDown(keyCodeHarvest) && _plantedCarrot && _isPlayer)
             {
                 spriteRenderer.sprite = cropHole;   
                 playerITEMS.items++; 
@@ -92,12 +93,22 @@ public class SlotFarm : MonoBehaviour
         {
             _detecting = true;
         }
+
+        if (collision.CompareTag("Player"))
+        {
+            _isPlayer = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Water"))
         {
             _detecting = false;
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            _isPlayer = false;
         }
     }
 }
