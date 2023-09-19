@@ -14,12 +14,15 @@ public class Skeleton : MonoBehaviour
     [Header("Stats")]
     public float totalHealth;
     public float currentHealth;
+    public float radius;
     public Image healthBar;
+    public LayerMask layer;
     public bool isDead;
 
     public Transform canvas;
 
     private Player _player;
+    private bool _detectPlayer;
 
 
     void Start()
@@ -36,10 +39,15 @@ public class Skeleton : MonoBehaviour
         FollowTarget();
     }
 
+    private void FixedUpdate() {
+        DetectPlayer();
+    }
+
     public void FollowTarget()
     {
-        if (!isDead)
-        {   
+        if (!isDead && _detectPlayer)
+        {
+            agent.isStopped = false;
             agent.SetDestination(_player.transform.position);
 
             float posX = _player.transform.position.x - transform.position.x;
@@ -68,5 +76,28 @@ public class Skeleton : MonoBehaviour
             //follow player
             animControl.PlayAmin(1);
         }
+    }
+
+    public void DetectPlayer()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, radius, layer);
+
+        if (hit != null)
+        {
+            //see player
+            _detectPlayer = true;
+        }
+        else
+        {
+            //don't see player
+            _detectPlayer = false;
+            animControl.PlayAmin(0);
+
+            agent.isStopped = true;
+        }
+    }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

@@ -73467,12 +73467,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5827087880613891240, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
+      propertyPath: radius
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827087880613891240, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2108659305}
     - target: {fileID: 5827087880613891240, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
       propertyPath: totalHealth
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5827087880613891240, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
+      propertyPath: layer.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 5827087880613891242, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
       propertyPath: m_Name
@@ -73480,7 +73488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5827087880613891242, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5827087880613891243, guid: 95bb785f1781f984e8dcc18c0e56923b, type: 3}
       propertyPath: m_RootOrder
